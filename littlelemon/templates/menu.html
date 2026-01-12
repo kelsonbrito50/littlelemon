@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="menu-section">
+    <h1>Menu</h1>
+    <div class="menu-list">
+        {% for item in menu %}
+        <div class="menu-item">
+            <a href="{% url 'menu_item' item.pk %}">{{ item.name }}</a>
+            <p class="price">${{ item.price }}</p>
+        </div>
+        {% empty %}
+        <p>No menu items available.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
